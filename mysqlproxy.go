@@ -199,7 +199,7 @@ func scramblePassword(scramble, password []byte) []byte {
 }
 
 func proxify(conn net.Conn, config *Config) {
-	server, err := net.DialTimeout("tcp", config.MySQLHost, time.Second)
+	server, err := net.DialTimeout("tcp", config.MySQLHost, config.Timeout)
 	if err != nil {
 		log.Println("Could not dial server")
 		log.Println(err)
